@@ -4,26 +4,36 @@ session_start();
 require_once __DIR__ . '/lang.php';
 \$uri = trim(parse_url(\$_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
-if (preg_match('#^admin/users/delete/(\d+)$#', \$uri, \$m)) {
-    require_once __DIR__ . '/../modules/admin/controllers/UserController.php';
-    (new UserController())->delete(\$m[1]); exit;
-}
-if (preg_match('#^admin/users/edit/(\d+)$#', \$uri, \$m)) {
-    require_once __DIR__ . '/../modules/admin/controllers/UserController.php';
-    (new UserController())->edit(\$m[1]); exit;
-}
-if (preg_match('#^admin/users/update/(\d+)$#', \$uri, \$m)) {
-    require_once __DIR__ . '/../modules/admin/controllers/UserController.php';
-    (new UserController())->update(\$m[1]); exit;
-}
 switch (\$uri) {
-    case 'admin/users':
-        require_once __DIR__ . '/../modules/admin/controllers/UserController.php';
-        (new UserController())->index(); break;
+    case '':
+        require_once __DIR__ . '/../modules/pages/controllers/HomeController.php';
+        (new HomeController())->index();
+        break;
+    case 'news':
+        require_once __DIR__ . '/../modules/news/controllers/NewsController.php';
+        (new NewsController())->index();
+        break;
+    case (preg_match('#^news/view/(\d+)$#', \$uri, \$m) ? true : false):
+        require_once __DIR__ . '/../modules/news/controllers/NewsController.php';
+        (new NewsController())->view(\$m[1]);
+        break;
+    case 'blog':
+        echo '<h2>Sección Blog no implementada en esta demo</h2>';
+        break;
     case 'perfil':
-        require_once __DIR__ . '/../modules/profile/controllers/ProfileController.php';
-        (new ProfileController())->view(); break;
+        echo '<h2>Página de perfil (vista simplificada)</h2>';
+        break;
+    case 'admin':
+        echo '<h2>Panel de Administración (vista simplificada)</h2>';
+        break;
+    case 'login':
+        echo '<h2>Página de login (simulada)</h2>';
+        break;
+    case 'register':
+        echo '<h2>Página de registro (simulada)</h2>';
+        break;
     default:
         http_response_code(404);
-        echo "Página no encontrada.";
+        echo 'Página no encontrada';
+        break;
 }

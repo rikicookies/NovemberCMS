@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title><?= \$title ?? 'Mi CMS' ?></title>
+  <meta charset="UTF-8">
+  <title><?= \$title ?? 'CMS' ?></title>
+  <style>body { font-family: sans-serif; margin: 40px; }</style>
 </head>
 <body>
-    <form method="post" action="/set-lang">
-        <label><?= __('select_language') ?>:</label>
-        <select name="lang" onchange="this.form.submit()">
-            <option value="es">Español</option>
-            <option value="en">English</option>
-        </select>
-    </form>
-    <hr>
-    <?= \$content ?>
+<nav>
+  <a href="/">Inicio</a> |
+  <a href="/news">Noticias</a> |
+  <a href="/blog">Blog</a> |
+  <a href="/perfil">Perfil</a> |
+  <a href="/admin">Admin</a>
+</nav>
+<hr>
+<?= \$content ?>
 </body>
 </html>

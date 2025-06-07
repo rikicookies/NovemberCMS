@@ -2,10 +2,10 @@
 
 class HomeController {
     public function index() {
-        $title = "Inicio";
+        $title = 'Inicio';
         ob_start();
-        require_once __DIR__ . '/../views/home.php';
+        include __DIR__ . '/../views/home.php';
         $content = ob_get_clean();
-        require_once __DIR__ . '/../../../themes/default/layout.php';
+        include __DIR__ . '/../../../themes/default/layout.php';
     }
 }
