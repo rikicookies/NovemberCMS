@@ -36,6 +36,10 @@ switch ($uri) {
         require_once __DIR__ . '/../modules/blog/controllers/BlogController.php';
         (new BlogController())->store();
         break;
+    case 'sample':
+        require_once __DIR__ . '/../modules/sample/controllers/SampleController.php';
+        (new SampleController())->index();
+        break;
     default:
         http_response_code(404);
         echo "Página no encontrada.";
