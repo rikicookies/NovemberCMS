@@ -1,0 +1,29 @@
+CREATE TABLE news (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255),
+  content TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE comments (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  news_id INT,
+  user_id INT,
+  comment TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE reactions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  news_id INT,
+  type ENUM('like', 'dislike'),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE favorites (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  news_id INT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
