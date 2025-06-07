@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title><?= \$title ?? 'Mi CMS' ?></title>
+    <style>body { background: #222; color: #eee; }</style>
 </head>
-<body style="background-color:#f0f0f0;">
-    <header><h1>Default Theme</h1></header>
+<body>
+    <header><h1>Dark Theme</h1></header>
     <main><?= \$content ?></main>
 </body>
 </html>
