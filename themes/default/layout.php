@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <title><?= \$title ?? 'Mi CMS' ?></title>
 </head>
-<body style="background-color:#f0f0f0;">
-    <header><h1>Default Theme</h1></header>
-    <main><?= \$content ?></main>
+<body>
+    <form method="post" action="/set-lang">
+        <label><?= __('select_language') ?>:</label>
+        <select name="lang" onchange="this.form.submit()">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+        </select>
+    </form>
+    <hr>
+    <?= \$content ?>
 </body>
 </html>

@@ -1,2 +1,2 @@
-<h1>¡Bienvenido a tu CMS desde cero!</h1>
-<p>Este es el primer módulo de ejemplo.</p>
+<h1><?= __('welcome') ?></h1>
+<p><?= __('admin_panel') ?></p>
